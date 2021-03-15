@@ -1,0 +1,133 @@
+{% extends 'account/dashboard_base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <section class="content-header">
+      <h1>
+        Account Level Prices
+      </h1>
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+		
+		<div class="row">
+
+      {% for level in level %}
+
+
+        
+        
+              <div class="col-lg-3">
+                <div class="box text-center p-50 box-inverse bg-info bg-hexagons-dark pull-up">
+                  <div class="box-body text-bold">
+                    <h5 class="text-uppercase">Beginner Plan</h5>
+                    <br>
+                    <p>{{level.beginner_daily_return}} </p>
+                    <p><strong>Plan Terms : </strong> {{level.beginner_plan_terms}} </p>
+                    <p><strong>Withdrawals : </strong> {{level.beginner_withdrawals}}</p>
+                    <p><strong>Min Deposit: </strong> {{level.beginner_min_deposit}}</p>
+                    <p><strong>Max Deposit : </strong> {{level.beginner_max_deposit}}</p>
+
+                    <br><br>
+                    {% if request.user.beginner %}
+                    <a class="btn btn-bold btn-block  btn-light" href="">Current plan</a>
+                    {% else %}
+                    <a class="btn btn-bold btn-block  btn-light" href="{% url 'deposit' %}">Upgrade</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3">
+                <div class="box text-center p-50 box-inverse bg-warning bg-hexagons-dark pull-up">
+                  <div class="box-body text-bold">
+                    <h5 class="text-uppercase">Intermediate Plan</h5>
+                    <br>
+                    <p>{{level.intermediate_daily_return}} </p>
+                    <p><strong>Plan Terms : </strong> {{level.intermediate_plan_terms}} </p>
+                    <p><strong>Withdrawals : </strong> {{level.intermediate_withdrawals}}</p>
+                    <p><strong>Min Deposit: </strong> {{level.intermediate_min_deposit}}</p>
+                    <p><strong>Max Deposit : </strong> {{level.intermediate_max_deposit}}</p>
+
+                    <br><br>
+                    {% if request.user.intermediate %}
+                    <a class="btn btn-bold btn-block  btn-light" href="">Current plan</a>
+                    {% else %}
+                    <a class="btn btn-bold btn-block  btn-light" href="{% url 'deposit' %}">Upgrade</a>
+                    {% endif %}
+                  
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3">
+                <div class="box text-center p-50 box-inverse bg-danger bg-hexagons-dark pull-up">
+                  <div class="box-body text-bold">
+                    <h5 class="text-uppercase">Advanced Plan</h5>
+                    <br>
+                    <p>{{level.advanced_daily_return}} </p>
+                    <p><strong>Plan Terms : </strong> {{level.advanced_plan_terms}} </p>
+                    <p><strong>Withdrawals : </strong> {{level.advanced_withdrawals}}</p>
+                    <p><strong>Min Deposit: </strong> {{level.advanced_min_deposit}}</p>
+                    <p><strong>Max Deposit : </strong> {{level.advanced_max_deposit}}</p>
+
+                    <br><br>
+                    {% if request.user.advanced %}
+                    <a class="btn btn-bold btn-block  btn-light" href="">Current plan</a>
+                    {% else %}
+                    <a class="btn btn-bold btn-block  btn-light" href="{% url 'deposit' %}">Upgrade</a>
+                    {% endif %}
+                    </div>
+                </div>
+              </div>
+
+
+
+
+              
+              <div class="col-lg-3">
+                <div class="box text-center p-50 box-inverse bg-success bg-hexagons-dark pull-up">
+                  <div class="box-body text-bold">
+                    <h5 class="text-uppercase">Expert Plan</h5>
+                    <br>
+                    <p>{{level.expert_daily_return}} </p>
+                    <p><strong>Plan Terms : </strong> {{level.expert_plan_terms}} </p>
+                    <p><strong>Withdrawals : </strong> {{level.expert_withdrawals}}</p>
+                    <p><strong>Min Deposit: </strong> {{level.expert_min_deposit}}</p>
+                    <p><strong>Max Deposit : </strong> {{level.expert_max_deposit}}</p>
+
+                    <br><br>
+                    {% if request.user.expert %}
+                    <a class="btn btn-bold btn-block  btn-light" href="">Current plan</a>
+                    {% else %}
+                    <a class="btn btn-bold btn-block  btn-light" href="{% url 'deposit' %}">Upgrade</a>
+                    {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+			
+		{% endfor %}
+			
+		
+		
+		
+		
+			
+		
+		
+		
+				
+		
+			
+
+
+    </section>
+    <!-- /.content -->
+  
+  {% endblock %}
